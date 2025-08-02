@@ -296,10 +296,44 @@ h2 {
     display: none;
     flex-direction: column;
     flex-grow: 1;
+    overflow-y: auto; /* 세로 스크롤 추가 */
+    max-height: calc(100vh - 200px); /* 화면 높이에서 여백 제외 */
 }
 
 .tab-panel.active {
     display: flex;
+}
+
+/* 요약 탭 컨텐츠에 특별한 스크롤 설정 */
+#summary-tab-content, #advanced-summary-tab-content {
+    max-height: calc(100vh - 250px); /* 탭 헤더 등을 고려한 높이 */
+    overflow-y: auto;
+    overflow-x: hidden; /* 가로 스크롤 숨김 */
+    padding-right: 5px; /* 스크롤바 공간 확보 */
+    scroll-behavior: smooth; /* 부드러운 스크롤 */
+}
+
+/* 스크롤바 스타일링 (웹킷 브라우저용) */
+#summary-tab-content::-webkit-scrollbar, 
+#advanced-summary-tab-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+#summary-tab-content::-webkit-scrollbar-track,
+#advanced-summary-tab-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+#summary-tab-content::-webkit-scrollbar-thumb,
+#advanced-summary-tab-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+#summary-tab-content::-webkit-scrollbar-thumb:hover,
+#advanced-summary-tab-content::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
 }
 
 .input-group {
